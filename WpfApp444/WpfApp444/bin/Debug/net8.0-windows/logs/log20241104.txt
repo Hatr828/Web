@@ -1,0 +1,71 @@
+2024-11-04 17:28:47 [INF] App started
+2024-11-04 17:46:26 [INF] App started
+2024-11-04 17:46:41 [INF] App closing
+2024-11-04 17:48:03 [INF] App started
+2024-11-04 17:48:17 [INF] Создан новый файл.
+2024-11-04 17:48:26 [INF] Создан новый файл.
+2024-11-04 17:48:35 [INF] Создан новый файл.
+2024-11-04 17:48:40 [INF] App closing
+2024-11-04 18:06:31 [INF] App started
+2024-11-04 18:06:37 [INF] App closing
+2024-11-04 18:07:01 [INF] App started
+2024-11-04 18:07:04 [INF] App closing
+2024-11-04 18:07:20 [INF] App started
+2024-11-04 18:07:25 [INF] App closing
+2024-11-04 18:07:57 [INF] App started
+2024-11-04 18:08:00 [INF] Создан новый файл.
+2024-11-04 18:08:14 [INF] App closing
+2024-11-04 18:13:15 [INF] App started
+2024-11-04 18:13:18 [INF] Создан новый файл.
+2024-11-04 18:13:21 [INF] Создан новый файл.
+2024-11-04 18:13:30 [INF] App closing
+2024-11-04 18:24:20 [INF] App started
+2024-11-04 18:24:44 [INF] App closing
+2024-11-04 18:26:41 [INF] App started
+2024-11-04 18:26:57 [INF] File hk.txtwas successfully created
+2024-11-04 18:26:57 [INF] Файл сохранён: C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\bin\Debug\net8.0-windows\Texts\hk.txt.
+2024-11-04 18:27:03 [INF] File renamed from hk.txt to k.txt.
+2024-11-04 18:27:03 [INF] Файл переименован: C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\bin\Debug\net8.0-windows\Texts\k.txt в C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\bin\Debug\net8.0-windows\Texts\k.txt.
+2024-11-04 18:27:05 [INF] File k.txtwas successfully updated
+2024-11-04 18:27:05 [INF] Файл сохранён: C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\bin\Debug\net8.0-windows\Texts\k.txt.
+2024-11-04 18:27:10 [INF] App closing
+2024-11-04 18:46:04 [INF] App started
+2024-11-04 18:46:07 [INF] New file created.
+2024-11-04 18:46:11 [INF] File NewFile.txt was successfully saved.
+2024-11-04 18:46:11 [INF] File saved: NewFile.txt.
+2024-11-04 18:46:18 [INF] File NewFile.txt was successfully saved.
+2024-11-04 18:46:18 [INF] File saved: NewFile.txt.
+2024-11-04 18:46:22 [INF] New file created.
+2024-11-04 18:46:27 [INF] File NewFile.txt was successfully saved.
+2024-11-04 18:46:27 [INF] File saved: NewFile.txt.
+2024-11-04 18:46:29 [INF] App closing
+2024-11-04 18:50:41 [INF] App started
+2024-11-04 18:50:48 [INF] File 1111.txt was successfully saved.
+2024-11-04 18:50:48 [INF] File saved: 1111.txt.
+2024-11-04 18:50:51 [INF] File 1111.txt was successfully saved.
+2024-11-04 18:50:51 [INF] File saved: 1111.txt.
+2024-11-04 18:50:58 [INF] File renamed from 1111.txt to 212.txt.
+2024-11-04 18:50:58 [INF] File renamed from C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\bin\Debug\net8.0-windows\Texts\1111.txt to 212.txt.
+2024-11-04 18:51:00 [INF] New file created.
+2024-11-04 18:51:02 [INF] App closing
+2024-11-04 18:52:14 [INF] App started
+2024-11-04 18:52:19 [INF] File 212.txt was successfully read.
+2024-11-04 18:52:19 [INF] File loaded: C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\bin\Debug\net8.0-windows\Texts\212.txt.
+2024-11-04 18:52:21 [INF] App closing
+2024-11-04 18:59:23 [INF] App started
+2024-11-04 18:59:32 [INF] File '12.txt' was successfully saved.
+2024-11-04 18:59:32 [INF] File '12.txt' saved successfully.
+2024-11-04 18:59:38 [INF] App closing
+2024-11-04 19:04:24 [INF] App started
+2024-11-04 19:04:31 [INF] Document '1.xaml' was successfully saved as XAML.
+2024-11-04 19:04:31 [INF] File '1.xaml' saved successfully.
+2024-11-04 19:04:33 [INF] File '1.xaml' was successfully deleted.
+2024-11-04 19:04:33 [INF] File '1.xaml' deleted successfully.
+2024-11-04 19:04:39 [INF] Document '3323.xaml' was successfully saved as XAML.
+2024-11-04 19:04:39 [INF] File '3323.xaml' saved successfully.
+2024-11-04 19:04:49 [INF] File renamed from '3323.xaml' to '1ss23.xaml'.
+2024-11-04 19:04:49 [INF] File renamed from 'C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\bin\Debug\net8.0-windows\Texts\3323.xaml' to '1ss23.xaml'.
+2024-11-04 19:04:55 [INF] File 'C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\bin\Debug\net8.0-windows\Texts\1ss23.xaml' loaded successfully.
+2024-11-04 19:04:58 [INF] App closing
+2024-11-04 19:07:45 [INF] App started
+2024-11-04 19:07:50 [INF] App closing

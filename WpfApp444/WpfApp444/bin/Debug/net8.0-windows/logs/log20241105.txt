@@ -1,0 +1,38 @@
+2024-11-05 10:18:19 [INF] App started
+2024-11-05 10:18:32 [INF] Document '000.xaml' was successfully saved as XAML.
+2024-11-05 10:18:54 [ERR] Failed to change font.
+System.ArgumentException: 'Single' parameter type is not valid for formatting property 'FontSize'. (Parameter 'value')
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value, Boolean applyToParagraphs, PropertyValueAction propertyValueAction)
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value)
+   at WpfApp444.FileManagerUI.ChangeFont(RichTextBox richTextEditor) in C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\FileManagerUI.cs:line 158
+2024-11-05 10:18:59 [ERR] Failed to change font.
+System.ArgumentException: 'Single' parameter type is not valid for formatting property 'FontSize'. (Parameter 'value')
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value, Boolean applyToParagraphs, PropertyValueAction propertyValueAction)
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value)
+   at WpfApp444.FileManagerUI.ChangeFont(RichTextBox richTextEditor) in C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\FileManagerUI.cs:line 158
+2024-11-05 10:19:09 [ERR] Failed to change font.
+System.ArgumentException: 'Single' parameter type is not valid for formatting property 'FontSize'. (Parameter 'value')
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value, Boolean applyToParagraphs, PropertyValueAction propertyValueAction)
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value)
+   at WpfApp444.FileManagerUI.ChangeFont(RichTextBox richTextEditor) in C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\FileManagerUI.cs:line 158
+2024-11-05 10:19:30 [ERR] Failed to change font.
+System.ArgumentException: 'Single' parameter type is not valid for formatting property 'FontSize'. (Parameter 'value')
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value, Boolean applyToParagraphs, PropertyValueAction propertyValueAction)
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value)
+   at WpfApp444.FileManagerUI.ChangeFont(RichTextBox richTextEditor) in C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\FileManagerUI.cs:line 158
+2024-11-05 10:19:35 [ERR] Failed to change font.
+System.ArgumentException: 'Single' parameter type is not valid for formatting property 'FontSize'. (Parameter 'value')
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value, Boolean applyToParagraphs, PropertyValueAction propertyValueAction)
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value)
+   at WpfApp444.FileManagerUI.ChangeFont(RichTextBox richTextEditor) in C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\FileManagerUI.cs:line 158
+2024-11-05 10:19:57 [ERR] Failed to change font.
+System.ArgumentException: 'Single' parameter type is not valid for formatting property 'FontSize'. (Parameter 'value')
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value, Boolean applyToParagraphs, PropertyValueAction propertyValueAction)
+   at System.Windows.Documents.TextRange.ApplyPropertyValue(DependencyProperty formattingProperty, Object value)
+   at WpfApp444.FileManagerUI.ChangeFont(RichTextBox richTextEditor) in C:\Users\hatr6\source\repos\WpfApp444\WpfApp444\FileManagerUI.cs:line 158
+2024-11-05 10:20:00 [INF] App closing
+2024-11-05 10:21:21 [INF] App started
+2024-11-05 10:22:24 [INF] App closing
+2024-11-05 10:23:08 [INF] App started
+2024-11-05 10:23:40 [INF] Document 'lol.xaml' was successfully saved as XAML.
+2024-11-05 10:23:51 [INF] App closing
