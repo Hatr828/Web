@@ -1,0 +1,12 @@
+﻿@inject WebApplication1.Services.ITimeDate timeDate
+@{
+
+    ViewData["Title"] = "Time";
+}
+
+<div class="text-center">
+    <p>SQL format time now -> <code>@timeDate.GetCurrentTime_Sql()</code></p>
+    <p>stamp format time now -> <code>@timeDate.GetCurrentTime_Stamp()</code></p>
+    <p>parse SQL type to stamp -> <code>@timeDate.ParseSql_Stamp(timeDate.GetCurrentTime_Sql())</code></p>
+
+</div>
