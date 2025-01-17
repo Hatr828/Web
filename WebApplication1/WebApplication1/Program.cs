@@ -1,4 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Services;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using ASP_P22.Data.DBContexts;
+
 
 namespace WebApplication1
 {
@@ -11,6 +15,11 @@ namespace WebApplication1
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<ITimeDate, TimeDate>();
+            builder.Services.AddScoped<UserService>();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             var app = builder.Build();
 

@@ -9,14 +9,17 @@ namespace WebApplication1.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ITimeDate _timeDate;
+        private readonly UserService _userController;
 
         public HomeController(
             ILogger<HomeController> logger,
-            ITimeDate timeDate
+            ITimeDate timeDate,
+            UserService userController
             )
         {
             _logger = logger;
             _timeDate = timeDate;
+            _userController = userController;
         }
 
         public IActionResult Index()
@@ -33,6 +36,12 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
+        public IActionResult DB()
+        {
+            return View();
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
