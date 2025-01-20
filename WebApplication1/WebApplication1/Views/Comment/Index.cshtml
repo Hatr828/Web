@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Comments";
+}
+<div class="text-center">
+    <h1 class="display-4">Comment Requester</h1>
+</div>
+<form asp-action="Comment">
+    <div class="row">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Header</label>
+            <input name="Name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Comment</label>
+            <textarea name="Comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-secondary">Requester</button>
+</form>
+
+@Html.DisplayFor(m => ViewData["formModel"])
