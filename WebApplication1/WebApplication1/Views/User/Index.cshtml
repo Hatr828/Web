@@ -1,0 +1,120 @@
+﻿@using WebApplication1.Models
+@{
+    ViewData["Title"] = "Користувачі";
+    bool? validationStatus = (bool?) ViewData["validationStatus"];
+    Dictionary<String, String>? errors = ViewData["errors"] as Dictionary<String, String>;
+    UserSignUpFormModel? formModel = ViewData["formModel"] as UserSignUpFormModel;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Реєстрація нового користувача</h1>
+</div>
+
+<form asp-action="SignUp">
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="name-addon"><i class="bi bi-person-vcard"></i></span>
+                @{
+                    bool hasError = validationStatus == false && (errors?.ContainsKey("UserName") ?? false);
+                }
+                <input name="UserName" type="text"
+                       class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+                       placeholder="Ім'я"
+                       value="@(formModel?.UserName)"
+                       aria-label="Username" aria-describedby="name-addon">
+                @if (hasError)
+                {
+                    <div class="invalid-feedback">@(errors?["UserName"])</div>
+                }
+
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="email-addon"><i class="bi bi-envelope-at"></i></span>
+                @{
+                    hasError = validationStatus == false && (errors?.ContainsKey("UserEmail") ?? false);
+                }
+                <input name="UserEmail" type="email"
+                       class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+                       placeholder="E-mail"
+                       value="@(formModel?.UserEmail)"
+                       aria-label="Email" aria-describedby="email-addon">
+                @if (hasError)
+                {
+                    <div class="invalid-feedback">@(errors?["UserEmail"])</div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="login-addon"><i class="bi bi-key"></i></span>
+                @{
+                    hasError = validationStatus == false && (errors?.ContainsKey("UserLogin") ?? false);
+                }
+                <input name="UserLogin" type="text"
+                       class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+                       placeholder="Логін"
+                       value="@(formModel?.UserLogin)"
+                       aria-label="Login" aria-describedby="login-addon">
+                @if (hasError)
+                {
+                    <div class="invalid-feedback">@(errors?["UserLogin"])</div>
+                }
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupFile01"><i class="bi bi-person-circle"></i></label>
+                <input type="file" class="form-control" id="inputGroupFile01">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="login-addon"><i class="bi bi-key"></i></span>
+                @{
+                    hasError = validationStatus == false && (errors?.ContainsKey("Password1") ?? false);
+                }
+                <input name="Password1" type="password"
+                       class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+                       placeholder="=" *********""
+                       value="@(formModel?.UserLogin)"
+                       aria-label="Login" aria-describedby="login-addon">
+                @if (hasError)
+                {
+                    <div class="invalid-feedback">@(errors?["Password1"])</div>
+                }
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="login-addon"><i class="bi bi-key"></i></span>
+                @{
+                    hasError = validationStatus == false && (errors?.ContainsKey("Password2") ?? false);
+                }
+                <input name="Password2" type="password"
+                       class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+                       placeholder="=" *********""
+                       value="@(formModel?.UserLogin)"
+                       aria-label="Login" aria-describedby="login-addon">
+                @if (hasError)
+                {
+                    <div class="invalid-feedback">@(errors?["Password2"])</div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-secondary">Зареєструватися</button>
+</form>
+
+
+@Html.DisplayFor(m => ViewData["formModel"])
