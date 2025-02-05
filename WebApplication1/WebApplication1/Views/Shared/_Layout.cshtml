@@ -31,6 +31,10 @@
                     <div class="auth-block">
                         <a class="btn btn-outline-dark" asp-controller="Comment" asp-action="Index"><i class="bi bi-chat-square-text"></i></a>
                         <a class="btn btn-outline-dark" asp-controller="User" asp-action="Index"><i class="bi bi-person-plus"></i></a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -51,5 +55,37 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <!-- Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="authModalLabel">Автентифікація</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="auth-form">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="auth-login-addon"><i class="bi bi-key"></i></span>
+                            <input name="UserLogin" type="text"
+                                   class="form-control "
+                                   placeholder="Логін"
+                                   aria-label="Login" aria-describedby="auth-login-addon">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="auth-password1-addon"><i class="bi bi-lock"></i></span>
+                            <input name="Password" type="password" class="form-control" placeholder="*********" aria-label="Password" aria-describedby="auth-password1-addon">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+	                <div id="auth-errors" class="text-danger"></div>
+	                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+	                <button type="submit" form="auth-form" class="btn btn-primary">Вхід</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

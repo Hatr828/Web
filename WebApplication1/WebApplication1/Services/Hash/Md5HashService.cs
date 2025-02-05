@@ -1,4 +1,4 @@
-﻿namespace ASP_P22.Data.Hash
+﻿namespace WebApplication1.Services.Hash
 {
     public class Md5HashService : IHashService
     {

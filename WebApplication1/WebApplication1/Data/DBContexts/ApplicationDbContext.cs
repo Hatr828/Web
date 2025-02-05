@@ -1,7 +1,7 @@
-﻿using ASP_P22.Data.Entities;
+﻿using WebApplication1.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace ASP_P22.Data.DBContexts
+namespace WebApplication1.Data.DBContexts
 {
     public class ApplicationDbContext : DbContext
     {

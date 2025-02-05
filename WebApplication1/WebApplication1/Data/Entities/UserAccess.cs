@@ -1,4 +1,4 @@
-﻿namespace ASP_P22.Data.Entities
+﻿namespace WebApplication1.Data.Entities
 {
     public class UserAccess
     {

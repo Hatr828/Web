@@ -1,6 +1,6 @@
-﻿using ASP_P22.Data.Hash;
+﻿using WebApplication1.Services.Hash;
 
-namespace ASP_P22.Data.Kdf
+namespace WebApplication1.Services.kdf
 {
     // sec. 5.1 PBKDF1 by RFC2898 (https://datatracker.ietf.org/doc/html/rfc2898)
     public class PbKdf1Service(IHashService hashService) : IKdfService

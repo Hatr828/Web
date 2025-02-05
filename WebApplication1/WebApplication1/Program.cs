@@ -1,7 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Services;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
-using ASP_P22.Data.DBContexts;
+using WebApplication1.Data.DBContexts;
+using WebApplication1.Services.kdf;
+using WebApplication1.Services.Hash;
+using WebApplication1.Services.Random;
 
 
 namespace WebApplication1
@@ -14,7 +17,11 @@ namespace WebApplication1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
             builder.Services.AddSingleton<ITimeDate, TimeDate>();
+            builder.Services.AddSingleton<IRandomService, AbcRandomService>();
+            builder.Services.AddSingleton<IHashService, Md5HashService>();
+            builder.Services.AddSingleton<IKdfService, PbKdf1Service>();
             builder.Services.AddScoped<UserService>();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>

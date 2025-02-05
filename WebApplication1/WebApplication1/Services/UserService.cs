@@ -1,9 +1,9 @@
-﻿using ASP_P22.Data.Entities;
+﻿using WebApplication1.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
-using ASP_P22.Data.Kdf;
-using ASP_P22.Data.DBContexts;
+using WebApplication1.Data.DBContexts;
+using WebApplication1.Services.kdf;
 
 namespace WebApplication1.Services
 {
