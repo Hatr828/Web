@@ -1,0 +1,464 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\models\\usersignupformmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\usersignupformmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\services\\kdf\\pbkdf2service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\kdf\\pbkdf2service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\data\\dbcontexts\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\data\\dbcontexts\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\views\\home\\time.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\home\\time.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\models\\usersignuppagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\usersignuppagemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\services\\kdf\\pbkdf1service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\kdf\\pbkdf1service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\services\\timedate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\timedate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\services\\itimedate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\itimedate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\services\\kdf\\ikdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\kdf\\ikdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\views\\home\\db.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\views\\home\\db.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\migrations\\20250117031644_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\migrations\\20250117031644_initialcreate.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\data\\entities\\useraccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\data\\entities\\useraccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\data\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\data\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\services\\hash\\md5hashservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\hash\\md5hashservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|c:\\users\\hatr6\\source\\repos\\webapplication1\\webapplication1\\services\\hash\\ihashservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AFB66679-05BE-4ABA-8CEF-E7E7E20E0471}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\hash\\ihashservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFIAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-05T20:26:48.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "WebApplication1\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "WebApplication1\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACEAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-05T20:57:11.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\UserController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAkwKYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T21:01:43.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Data\\DBContexts\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Data\\DBContexts\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Data\\DBContexts\\ApplicationDbContext.cs",
+              "RelativeToolTip": "WebApplication1\\Data\\DBContexts\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:34:31.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PbKdf2Service.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\kdf\\PbKdf2Service.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\kdf\\PbKdf2Service.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\kdf\\PbKdf2Service.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\kdf\\PbKdf2Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:37:29.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Program.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Program.cs",
+              "RelativeToolTip": "WebApplication1\\Program.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAADwvxUAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:33:10.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\User\\Index.cshtml",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-05T20:35:38.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserSignUpFormModel.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Models\\UserSignUpFormModel.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Models\\UserSignUpFormModel.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Models\\UserSignUpFormModel.cs",
+              "RelativeToolTip": "WebApplication1\\Models\\UserSignUpFormModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T21:00:32.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-05T21:01:30.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Time.cshtml",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\Time.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Home\\Time.cshtml",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\Time.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Home\\Time.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-05T21:01:32.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T21:01:42.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-05T21:01:28.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ITimeDate.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\ITimeDate.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\ITimeDate.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\ITimeDate.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\ITimeDate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:52:47.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\UserService.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:37:13.447Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\appsettings.json",
+              "RelativeDocumentMoniker": "WebApplication1\\appsettings.json",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\appsettings.json",
+              "RelativeToolTip": "WebApplication1\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-05T20:35:21.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserSignUpPageModel.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Models\\UserSignUpPageModel.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Models\\UserSignUpPageModel.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Models\\UserSignUpPageModel.cs",
+              "RelativeToolTip": "WebApplication1\\Models\\UserSignUpPageModel.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:29:52.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TimeDate.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\TimeDate.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\TimeDate.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\TimeDate.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\TimeDate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:52:52.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IKdfService.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\kdf\\IKdfService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\kdf\\IKdfService.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\kdf\\IKdfService.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\kdf\\IKdfService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:34:15.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PbKdf1Service.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\kdf\\PbKdf1Service.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\kdf\\PbKdf1Service.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\kdf\\PbKdf1Service.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\kdf\\PbKdf1Service.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:34:06.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "20250117031644_InitialCreate.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Migrations\\20250117031644_InitialCreate.Designer.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Migrations\\20250117031644_InitialCreate.Designer.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Migrations\\20250117031644_InitialCreate.Designer.cs",
+              "RelativeToolTip": "WebApplication1\\Migrations\\20250117031644_InitialCreate.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:37:35.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "DB.cshtml",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\DB.cshtml",
+              "RelativeDocumentMoniker": "WebApplication1\\Views\\Home\\DB.cshtml",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Views\\Home\\DB.cshtml",
+              "RelativeToolTip": "WebApplication1\\Views\\Home\\DB.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-05T20:37:55.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "WebApplication1\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:37:43.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Md5HashService.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\Hash\\Md5HashService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\Hash\\Md5HashService.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\Hash\\Md5HashService.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\Hash\\Md5HashService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:34:24.604Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IHashService.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\Hash\\IHashService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\Hash\\IHashService.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Services\\Hash\\IHashService.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\Hash\\IHashService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:34:21.294Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserAccess.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Data\\Entities\\UserAccess.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Data\\Entities\\UserAccess.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Data\\Entities\\UserAccess.cs",
+              "RelativeToolTip": "WebApplication1\\Data\\Entities\\UserAccess.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:32:02.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Data\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Data\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\Data\\Entities\\User.cs",
+              "RelativeToolTip": "WebApplication1\\Data\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T20:31:54.724Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
