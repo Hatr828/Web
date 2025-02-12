@@ -27,6 +27,7 @@ C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\bootstra
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\jquery-validation\dist\additional-methods.js
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\css\icon.css
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\jquery-validation\dist\jquery.validate.js
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
@@ -60,6 +61,7 @@ C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\jquery-v
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+wwwroot\css\icon.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js

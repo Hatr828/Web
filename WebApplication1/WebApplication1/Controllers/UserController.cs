@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using WebApplication1.Data.DBContexts;
@@ -186,5 +188,55 @@ namespace WebApplication1.Controllers
 
             return (status, errors);
         }
+
+        [HttpGet]
+        public JsonResult Authenticate()
+        {
+            String authHeader = Request.Headers.Authorization.ToString();  // "Basic dGVzdDoxMjM="
+            if (String.IsNullOrEmpty(authHeader))
+            {
+                return AuthError("Authorization header required");
+            }
+            String authScheme = "Basic ";
+            if (!authHeader.StartsWith(authScheme))
+            {
+                return AuthError($"Authorization scheme error: '{authScheme}' required");
+            }
+            String credentials = authHeader[authScheme.Length..];  // "dGVzdDoxMjM="
+            String authData = System.Text.Encoding.UTF8.GetString(
+                Base64UrlTextEncoder.Decode(credentials));         // "test:123"
+            String[] parts = authData.Split(':', 2);               // ["test", "123"]
+            if (parts.Length != 2)
+            {
+                return AuthError("Authorization credentials malformed");
+            }
+            // login - parts[0], password - parts[1]
+            var ua = _dataContext
+                .UsersAccess
+                .Include(ua => ua.User)
+                .FirstOrDefault(ua => ua.Login == parts[0]);
+            if (ua == null)
+            {
+                return AuthError("Authorization rejected");
+            }
+            var (iter, len) = KdfSettings();
+            String dk1 = _kdfService.Dk(parts[1], ua.Salt, iter, len);
+            if (dk1 != ua.Dk)
+            {
+                return AuthError("Authorization rejected.");
+            }
+            // return Json(ua.User);
+            HttpContext.Session.SetString(
+                "authUser",
+                JsonSerializer.Serialize(ua.User)
+            );
+            return Json("Ok");
+        }
+        private JsonResult AuthError(String message)
+        {
+            Response.StatusCode = StatusCodes.Status401Unauthorized;
+            return Json(message);
+        }
+
     }
 }

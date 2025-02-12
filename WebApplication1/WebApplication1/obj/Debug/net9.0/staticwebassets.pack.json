@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\WebApplication1.yj6fvmmoe8.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\wwwroot\\css\\icon.css",
+      "PackagePath": "staticwebassets\\css\\icon.css"
+    },
+    {
       "Id": "C:\\Users\\hatr6\\source\\repos\\WebApplication1\\WebApplication1\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

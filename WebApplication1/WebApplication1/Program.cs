@@ -5,6 +5,7 @@ using WebApplication1.Data.DBContexts;
 using WebApplication1.Services.kdf;
 using WebApplication1.Services.Hash;
 using WebApplication1.Services.Random;
+using WebApplication1.Middleware.Auth;
 
 
 namespace WebApplication1
@@ -30,7 +31,7 @@ namespace WebApplication1
             builder.Services.AddDistributedMemoryCache();
             builder.Services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
@@ -53,6 +54,9 @@ namespace WebApplication1
             app.UseSession();
 
             app.MapStaticAssets();
+
+            app.UseAuthSession();
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")

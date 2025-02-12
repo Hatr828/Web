@@ -1,6 +1,8 @@
 ﻿document.addEventListener('submit', e => {
     const form = e.target;
     if (form.id === "auth-form") {
+        console.log("here")
+
         e.preventDefault();
 
         const loginInput = form.querySelector('[name="UserLogin"]');
@@ -30,21 +32,36 @@
             errors.push("Пароль повинен містити хоча б один спеціальний символ.");
         }
 
+
         if (errors.length > 0) {
             errorContainer.innerHTML = errors.join("<br>");
-            return;
+           
         }
 
         // Генерація `credentials` для авторизації
-        const credentials = btoa(loginInput.value + ':' + password);
-        console.log(credentials);
 
-        // RFC 7617 (Реальний запит до сервера можна розкоментувати)
-        // fetch("", {
-        //     method: "GET",
-        //     headers: {
-        //         'Authorization': 'Basic ' + credentials
-        //     }
-        // }).then(r => r.json()).then(console.log);
+        // RFC 7617
+        const credentials = btoa(loginInput.value + ':' + passwordInput.value);
+        fetch("/User/Authenticate", {
+            method: "GET",
+            headers: {
+                'Authorization': 'Basic ' + credentials
+            }
+        }).then(r => {
+            console.log(r);
+            if (r.ok) {
+                window.location.reload();
+            }
+            else {
+                r.json().then(j => {
+                    alert(j);   // Д.З.
+                });
+            }
+        });
+
+        console.log(credentials);   
     }
 });
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
