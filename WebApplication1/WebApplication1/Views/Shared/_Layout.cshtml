@@ -1,9 +1,16 @@
-﻿@{
-	bool isAuthenticated = Context.Items.Keys.Contains("authUser");
-	WebApplication1.Data.Entities.User? user = isAuthenticated
-		? Context.Items["authUser"] as WebApplication1.Data.Entities.User
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@using System.Security.Claims
+@{
+
+	bool isAuthenticated = Context.User.Identity?.IsAuthenticated ?? false;
+
+	String? userName = isAuthenticated
+		? Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value
 		: null;
-}﻿
+
+	char firstLetter = userName?[0] ?? 'N';
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +44,7 @@
                     <div class="auth-block">
 	                    @if (isAuthenticated)
 	                    {
-		                    <span id="icon" data-bs-toggle="tooltip" data-bs-placement="bottom"
-		                          data-bs-title="@(user?.Name)">@(user?.Name[0])</span>
+		                    <a asp-controller="User" asp-action="Profile" title="@(userName)">@firstLetter</a>
 		                    <a href="?logout" class="btn btn-outline-danger">
 			                    <i class="bi bi-box-arrow-right"></i>
 		                    </a>

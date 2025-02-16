@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using WebApplication1.Data.DBContexts;
@@ -14,6 +15,7 @@ namespace WebApplication1.Controllers
         ApplicationDbContext dataContext,
         IKdfService kdfService,
         IRandomService randomService,
+        ILogger<UserController> logger,
         IConfiguration configuration) : Controller
     {
 
@@ -21,6 +23,7 @@ namespace WebApplication1.Controllers
         private readonly IKdfService _kdfService = kdfService;
         private readonly IRandomService _randomService = randomService;
         private readonly IConfiguration _configuration = configuration;
+        private readonly ILogger<UserController> _logger = logger;
 
         public IActionResult Index()
         {
@@ -46,7 +49,10 @@ namespace WebApplication1.Controllers
                     {
                         Id = Guid.NewGuid(),
                         Name = formModel!.UserName,
-                        Email = formModel.UserEmail
+                        Email = formModel.UserEmail,
+                        Phone = formModel.UserPhone,
+                        WorkPosition = formModel.UserPosition,
+                        PhotoUrl = formModel.UserPhotoSavedName
                     };
                     String salt = _randomService.FileName();
                     var (iter, len) = KdfSettings();
@@ -69,6 +75,25 @@ namespace WebApplication1.Controllers
             return View(pageModel);
         }
 
+        public ViewResult Profile()
+        {
+            UserProfilePageModel pageModel = new()
+            {
+                Name = HttpContext.User.Claims
+                    .FirstOrDefault(c => c.Type == ClaimTypes.Name)
+                    ?.Value ?? String.Empty,
+                Email = HttpContext.User.Claims
+                    .FirstOrDefault(c => c.Type == ClaimTypes.Email)
+                    ?.Value ?? String.Empty,
+                PhotoUrl = "https://img.icons8.com/bubbles/100/000000/user.png",
+                Phone = "0987654321",
+                MostViewed = "ASP",
+                Recent = "Razor",
+                Role = "Web Designer"
+            };
+            return View(pageModel);
+        }
+
         private (uint, uint) KdfSettings()
         {
             var kdf = _configuration.GetSection("Kdf");
@@ -78,10 +103,20 @@ namespace WebApplication1.Controllers
             );
         }
 
-        public IActionResult SignUp([FromForm] UserSignUpFormModel formModel)
+        public RedirectToActionResult SignUp([FromForm] UserSignUpFormModel formModel)
         {
             // return View("Index");  // Украй не рекомендується переходити на 
             // представлення після прийняття даних форми
+
+            // Перевіряємо чи є у формі файл і зберігаємо його
+            // Оскільки сам файл не серіалізується, у моделі зберігаємо
+            //  ім'я (URL) з яким він збережений
+
+            if (formModel.UserPhoto != null)
+            {
+                _logger.LogInformation("File uploaded {name}",
+                    formModel.UserPhoto.FileName);
+            }
 
             HttpContext.Session.SetString(
                 "formModel",
@@ -178,6 +213,44 @@ namespace WebApplication1.Controllers
                 status = false;
                 errors["Password2"] = "Паролі не збігаються.";
             }
+
+            if (!string.IsNullOrEmpty(formModel.UserPhone))
+            {
+                if (!Regex.IsMatch(formModel.UserPhone, @"^\+?\d{10,13}$"))
+                {
+                    status = false;
+                    errors["UserPhone"] = "Номер телефону не відповідає стандартному шаблону.";
+                }
+            }
+            if (!string.IsNullOrEmpty(formModel.UserPosition))
+            {
+                if (formModel.UserPosition.Length < 3)
+                {
+                    status = false;
+                    errors["UserPosition"] = "Посада не може бути коротшою за 3 символи.";
+                }
+                else if (char.IsDigit(formModel.UserPosition[0]))
+                {
+                    status = false;
+                    errors["UserPosition"] = "Посада не повинна починатися з цифри.";
+                }
+                else if (Regex.IsMatch(formModel.UserPosition, @"[^A-Za-zА-Яа-я0-9\s-]"))
+                {
+                    status = false;
+                    errors["UserPosition"] = "Посада не повинна містити спеціальні символи (окрім '-').";
+                }
+            }
+            if (!string.IsNullOrEmpty(formModel.UserPhotoSavedName))
+            {
+                string fileExtension = Path.GetExtension(formModel.UserPhotoSavedName);
+                List<string> availableExtensions = [".jpg", ".png", ".webp", ".jpeg"];
+                if (!availableExtensions.Contains(fileExtension))
+                {
+                    status = false;
+                    errors["UserPhoto"] = "Файл повинен мати розширення .jpg, .png, .webp, .jpeg.";
+                }
+            }
+
 
 
             /* Д.З. Завершити валідацію даних від форми реєстрації користувача

@@ -8,11 +8,16 @@ namespace WebApplication1.Data.DBContexts
         public DbSet<User> Users { get; set; }
         public DbSet<UserAccess> UsersAccess { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("site");
+
+            modelBuilder.Entity<User>()
+                .ToTable("Users", "site"); // Ensure EF recognizes the correct schema
 
             modelBuilder.Entity<UserAccess>()
                 .HasIndex(a => a.Login)

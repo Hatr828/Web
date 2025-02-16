@@ -1,4 +1,5 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using System.Security.Claims;
+using static System.Net.Mime.MediaTypeNames;
 using System.Text.Json;
 
 namespace WebApplication1.Middleware.Auth
@@ -28,7 +29,16 @@ namespace WebApplication1.Middleware.Auth
                 Data.Entities.User user = JsonSerializer
                     .Deserialize<Data.Entities.User>(
                         context.Session.GetString("authUser")!)!;
-                context.Items["authUser"] = user;
+                context.User = new ClaimsPrincipal(
+                    new ClaimsIdentity(
+                        [
+                            new Claim( ClaimTypes.Sid, user.Id.ToString() ),
+                            new Claim( ClaimTypes.Name, user.Name ),
+                            new Claim( ClaimTypes.Email, user.Email ),
+                        ],
+                        nameof(AuthSessionMiddleware)
+                    )
+                ); ;
             }
             await _next(context);
         }
