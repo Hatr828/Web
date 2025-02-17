@@ -12,6 +12,8 @@ namespace WebApplication1.Data.Entities
         public String? WorkPosition { get; set; }
         public String? PhotoUrl { get; set; }
 
+        public String Slug { get; set; } = null!; 
+
 
         [JsonIgnore]
         public List<UserAccess> Accesses { get; set; } = [];

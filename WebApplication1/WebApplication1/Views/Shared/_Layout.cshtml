@@ -9,6 +9,13 @@
 		? Context.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value
 		: null;
 
+	String? userSlug = 
+		Context
+			.User
+			.Claims
+			.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)
+			?.Value;
+
 	char firstLetter = userName?[0] ?? 'N';
 }
 <!DOCTYPE html>
@@ -44,7 +51,10 @@
                     <div class="auth-block">
 	                    @if (isAuthenticated)
 	                    {
-		                    <a asp-controller="User" asp-action="Profile" title="@(userName)">@firstLetter</a>
+		                    <a asp-controller="User" 
+		                       asp-action="Profile"
+		                       asp-route-id="@userSlug"
+		                       title="@(userName)">@firstLetter</a>
 		                    <a href="?logout" class="btn btn-outline-danger">
 			                    <i class="bi bi-box-arrow-right"></i>
 		                    </a>

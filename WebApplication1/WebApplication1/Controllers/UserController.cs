@@ -8,6 +8,7 @@ using WebApplication1.Data.DBContexts;
 using WebApplication1.Models;
 using WebApplication1.Services.kdf;
 using WebApplication1.Services.Random;
+using WebApplication1.Services.Storage;
 
 namespace WebApplication1.Controllers
 {
@@ -15,6 +16,7 @@ namespace WebApplication1.Controllers
         ApplicationDbContext dataContext,
         IKdfService kdfService,
         IRandomService randomService,
+        IStorageService storageService,
         ILogger<UserController> logger,
         IConfiguration configuration) : Controller
     {
@@ -24,6 +26,7 @@ namespace WebApplication1.Controllers
         private readonly IRandomService _randomService = randomService;
         private readonly IConfiguration _configuration = configuration;
         private readonly ILogger<UserController> _logger = logger;
+        private readonly IStorageService _storageService = storageService;
 
         public IActionResult Index()
         {
@@ -44,7 +47,8 @@ namespace WebApplication1.Controllers
                 // ViewData["errors"] = errors;
                 if (pageModel.ValidationStatus ?? false)
                 {
-                    // Реєструємо у БД
+                    String slug = string.IsNullOrEmpty(formModel.Slug) ? formModel.UserLogin : formModel.Slug;
+
                     Data.Entities.User user = new()
                     {
                         Id = Guid.NewGuid(),
@@ -52,7 +56,9 @@ namespace WebApplication1.Controllers
                         Email = formModel.UserEmail,
                         Phone = formModel.UserPhone,
                         WorkPosition = formModel.UserPosition,
-                        PhotoUrl = formModel.UserPhotoSavedName
+                        PhotoUrl = formModel.UserPhotoSavedName,
+
+                        Slug = slug,  
                     };
                     String salt = _randomService.FileName();
                     var (iter, len) = KdfSettings();
@@ -75,22 +81,31 @@ namespace WebApplication1.Controllers
             return View(pageModel);
         }
 
-        public ViewResult Profile()
+        public ViewResult Profile([FromRoute] String id)
         {
-            UserProfilePageModel pageModel = new()
+            UserProfilePageModel pageModel;
+            var profileUser = _dataContext.Users.FirstOrDefault(u => u.Slug == id);
+            if (profileUser == null)
             {
-                Name = HttpContext.User.Claims
-                    .FirstOrDefault(c => c.Type == ClaimTypes.Name)
-                    ?.Value ?? String.Empty,
-                Email = HttpContext.User.Claims
-                    .FirstOrDefault(c => c.Type == ClaimTypes.Email)
-                    ?.Value ?? String.Empty,
-                PhotoUrl = "https://img.icons8.com/bubbles/100/000000/user.png",
-                Phone = "0987654321",
-                MostViewed = "ASP",
-                Recent = "Razor",
-                Role = "Web Designer"
-            };
+                pageModel = new() { IsFound = false };
+            }
+            else
+            {
+                pageModel = new()
+                {
+                    IsFound = true,
+                    Name = profileUser.Name,
+                    Email = profileUser.Email,
+                    PhotoUrl = "/Storage/Item/" + profileUser.PhotoUrl,
+                    Phone = profileUser.Phone ?? "--",
+                    MostViewed = id,
+                    Recent = "Razor",
+                    Role = profileUser.WorkPosition ?? "--"
+                };
+                /* Name = HttpContext.User.Claims
+                        .FirstOrDefault(c => c.Type == ClaimTypes.Name)
+                        ?.Value ?? String.Empty,*/
+            }
             return View(pageModel);
         }
 
@@ -112,10 +127,11 @@ namespace WebApplication1.Controllers
             // Оскільки сам файл не серіалізується, у моделі зберігаємо
             //  ім'я (URL) з яким він збережений
 
-            if (formModel.UserPhoto != null)
+            if (formModel.UserPhoto != null && formModel.UserPhoto.Length != 0)
             {
-                _logger.LogInformation("File uploaded {name}",
-                    formModel.UserPhoto.FileName);
+                _logger.LogInformation("File uploaded {name}", formModel.UserPhoto.FileName);
+
+                formModel.UserPhotoSavedName = _storageService.Save(formModel.UserPhoto);
             }
 
             HttpContext.Session.SetString(
@@ -249,6 +265,12 @@ namespace WebApplication1.Controllers
                     status = false;
                     errors["UserPhoto"] = "Файл повинен мати розширення .jpg, .png, .webp, .jpeg.";
                 }
+            }
+
+            if (_dataContext.Users.Any(u => u.Slug == formModel.Slug))
+            {
+                status = false;
+                errors["Slug"] = "Слаг має бути унікальним";
             }
 
 

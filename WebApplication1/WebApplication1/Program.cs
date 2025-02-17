@@ -6,6 +6,7 @@ using WebApplication1.Services.kdf;
 using WebApplication1.Services.Hash;
 using WebApplication1.Services.Random;
 using WebApplication1.Middleware.Auth;
+using WebApplication1.Services.Storage;
 
 
 namespace WebApplication1
@@ -23,6 +24,7 @@ namespace WebApplication1
             builder.Services.AddSingleton<IRandomService, AbcRandomService>();
             builder.Services.AddSingleton<IHashService, Md5HashService>();
             builder.Services.AddSingleton<IKdfService, PbKdf1Service>();
+            builder.Services.AddSingleton<IStorageService, LocalStorageService>();
             builder.Services.AddScoped<UserService>();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>

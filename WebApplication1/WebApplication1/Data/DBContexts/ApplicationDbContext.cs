@@ -28,6 +28,9 @@ namespace WebApplication1.Data.DBContexts
                 .WithMany(u => u.Accesses)
                 .HasPrincipalKey(u => u.Id)
                 .HasForeignKey(a => a.UserId);
+
+            modelBuilder.Entity<Entities.User>()
+                .HasIndex(u => u.Slug);
         }
     }
 }

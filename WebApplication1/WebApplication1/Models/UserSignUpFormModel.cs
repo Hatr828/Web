@@ -12,6 +12,8 @@ namespace WebApplication1.Models
 
         public String UserPhone { get; set; } = null!;
         public String UserPosition { get; set; } = null!;
+
+        public String Slug { get; set; } = "";
         [JsonIgnore]
         public IFormFile UserPhoto { get; set; } = null!;
         public String UserPhotoSavedName { get; set; } = null!;
