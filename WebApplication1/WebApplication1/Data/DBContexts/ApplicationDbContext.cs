@@ -5,10 +5,12 @@ namespace WebApplication1.Data.DBContexts
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserAccess> UsersAccess { get; set; }
+        public DbSet<Entities.User> Users { get; set; }
+        public DbSet<Entities.UserAccess> UsersAccess { get; set; }
+        public DbSet<Entities.Category> Categories { get; set; }
+        public DbSet<Entities.Product> Products { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
 
@@ -16,14 +18,11 @@ namespace WebApplication1.Data.DBContexts
         {
             modelBuilder.HasDefaultSchema("site");
 
-            modelBuilder.Entity<User>()
-                .ToTable("Users", "site"); // Ensure EF recognizes the correct schema
-
-            modelBuilder.Entity<UserAccess>()
+            modelBuilder.Entity<Entities.UserAccess>()
                 .HasIndex(a => a.Login)
                 .IsUnique();
 
-            modelBuilder.Entity<UserAccess>()
+            modelBuilder.Entity<Entities.UserAccess>()
                 .HasOne(a => a.User)
                 .WithMany(u => u.Accesses)
                 .HasPrincipalKey(u => u.Id)
@@ -31,6 +30,52 @@ namespace WebApplication1.Data.DBContexts
 
             modelBuilder.Entity<Entities.User>()
                 .HasIndex(u => u.Slug);
+
+            modelBuilder.Entity<Entities.Product>()
+                .HasOne(p => p.Category)
+                .WithMany(c => c.Products);
+
+            modelBuilder.Entity<Entities.Product>()
+                .HasIndex(p => p.Slug);
+
+            modelBuilder.Entity<Entities.Category>()
+                .HasIndex(c => c.Slug);
+
+            modelBuilder.Entity<Entities.Category>().HasData(
+                new Entities.Category
+                {
+                    Id = Guid.Parse("706C9D0D-D766-48B2-8615-3DFE795B048E"),
+                    Name = "Скло",
+                    Description = "Товари та вироби зі скла",
+                    ImagesCsv = "glass.jpg",
+                    Slug = "glass"
+                },
+                new Entities.Category
+                {
+                    Id = Guid.Parse("CC51B8CA-AD48-456D-B83F-023F17A7CEC8"),
+                    Name = "Офіс",
+                    Description = "Офісні та настільні товари",
+                    ImagesCsv = "office.jpg",
+                    Slug = "office"
+                },
+                new Entities.Category
+                {
+                    Id = Guid.Parse("3CF44C28-9B0B-4314-A7BD-410864432F7A"),
+                    Name = "Каміння",
+                    Description = "Вироби з натурального та штучного каміння",
+                    ImagesCsv = "stone.jpg",
+                    Slug = "stone"
+                },
+                new Entities.Category
+                {
+                    Id = Guid.Parse("1E7B62ED-1810-441B-A781-622F2BF86D66"),
+                    Name = "Дерево",
+                    Description = "Товари та вироби з деревини",
+                    ImagesCsv = "wood.jpg",
+                    Slug = "wood"
+                }
+            );
         }
     }
+
 }

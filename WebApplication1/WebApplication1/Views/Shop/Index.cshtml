@@ -1,0 +1,126 @@
+﻿@model WebApplication1.Models.ShopIndexPageModel
+@{
+	ViewData["Title"] = "Shop";
+	bool? validationStatus = Model.ValidationStatus;
+	Dictionary<string, string>? errors = Model.Errors;
+}
+
+<div class="text-center">
+	<h1 class="display-4">Магазин</h1>
+</div>
+
+
+<div style="overflow-x: scroll; display: flex; width: 100%">
+	@foreach (var category in Model.Categories)
+	{
+		@Html.DisplayFor(m => category)
+	}
+</div>
+
+@if (Context.User.Identity?.IsAuthenticated ?? false)
+{
+	<hr />
+	<form asp-action="AddProduct" method="post" enctype="multipart/form-data">
+		<div class="row">
+			<div class="col">
+				<div class="mb-3">
+					<label for="nameInput" class="form-label">Назва товару</label>
+					@{
+						bool hasError = validationStatus == false && (errors?.ContainsKey("ProductName") ?? false);
+					}
+					<input type="text"
+						   class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+						   id="nameInput" name="Name" placeholder="Назва...">
+					@if (hasError)
+					{
+						<div class="invalid-feedback">
+							@errors?["ProductName"]
+						</div>
+					}
+				</div>
+				<select class="form-select" name="CategoryId" aria-label="Default select example">
+					@foreach (var category in Model.Categories)
+					{
+						<option value="@(category.Id)">@(category.Name)</option>
+					}
+				</select>
+				<div class="mb-3">
+					<label for="priceInput" class="form-label">Ціна</label>
+					@{
+						hasError = validationStatus == false && (errors?.ContainsKey("ProductPrice") ?? false);
+					}
+					<input type="number" step="0.01" value="0"
+						   class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+						   id="priceInput" name="Price" placeholder="0.00">
+					@if (hasError)
+					{
+						<div class="invalid-feedback">
+							@errors?["ProductPrice"]
+						</div>
+					}
+				</div>
+				<div class="mb-3">
+					<label for="slugInput" class="form-label">Slug</label>
+					@{
+						hasError = validationStatus == false && (errors?.ContainsKey("ProductSlug") ?? false);
+					}
+					<input type="text"
+						   class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+						   id="slugInput" name="Slug" placeholder="Slug...">
+					@if (hasError)
+					{
+						<div class="invalid-feedback">
+							@errors?["ProductSlug"]
+						</div>
+					}
+				</div>
+				<button type="submit" class="btn btn-outline-success">Додати</button>
+			</div>
+			<div class="col">
+				<div class="mb-3">
+					<label for="descriptionTextarea" class="form-label">Опис</label>
+					@{
+						hasError = validationStatus == false && (errors?.ContainsKey("ProductDescription") ?? false);
+					}
+					<textarea class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+							  id="descriptionTextarea" name="Description" rows="4"></textarea>
+					@if (hasError)
+					{
+						<div class="invalid-feedback">
+							@errors?["ProductDescription"]
+						</div>
+					}
+				</div>
+				<div class="mb-3">
+					<label for="stockInput" class="form-label">Кількість на складі</label>
+					@{
+						hasError = validationStatus == false && (errors?.ContainsKey("ProductStock") ?? false);
+					}
+					<input type="number" step="1"
+						   class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+						   id="stockInput" name="Stock" value="1">
+					@if (hasError)
+					{
+						<div class="invalid-feedback">
+							@errors?["ProductStock"]
+						</div>
+					}
+				</div>
+				<div class="mb-3">
+					<label for="formFileMultiple" class="form-label">Зображення</label>
+					@{
+						hasError = validationStatus == false && (errors?.ContainsKey("ProductImages") ?? false);
+					}
+					<input class="form-control @(hasError ? "is-invalid" : (validationStatus != null) ? "is-valid" : "")"
+						   type="file" name="Images" id="formFileMultiple" multiple>
+					@if (hasError)
+					{
+						<div class="invalid-feedback">
+							@errors?["ProductImages"]
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</form>
+}
