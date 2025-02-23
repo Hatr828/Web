@@ -1,6 +1,6 @@
 ﻿using WebApplication1.Data.Entities;
 
-namespace WebApplication1.Models
+namespace WebApplication1.Models.Shop
 {
     public class ShopIndexPageModel
     {

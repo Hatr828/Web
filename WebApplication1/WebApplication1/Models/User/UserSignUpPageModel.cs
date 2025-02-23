@@ -1,5 +1,5 @@
 ﻿    
-namespace WebApplication1.Models
+namespace WebApplication1.Models.User
 {
     public class UserSignUpPageModel
     {

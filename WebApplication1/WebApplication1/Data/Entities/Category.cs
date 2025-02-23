@@ -11,6 +11,6 @@ namespace WebApplication1.Data.Entities
         public String Slug { get; set; } = null!;
 
         [JsonIgnore]
-        public IEnumerable<Product> Products { get; set; } = [];
+        public List<Product> Products { get; set; } = [];
     }
 }

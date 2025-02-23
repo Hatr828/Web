@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Text.RegularExpressions;
 using WebApplication1.Data.DBContexts;
 using WebApplication1.Models;
+using WebApplication1.Models.User;
 using WebApplication1.Services.kdf;
 using WebApplication1.Services.Random;
 using WebApplication1.Services.Storage;

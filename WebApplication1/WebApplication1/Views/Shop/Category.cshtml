@@ -1,0 +1,27 @@
+﻿@model WebApplication1.Models.Shop.ShopCategoryPageModel
+
+@{
+	ViewData["Title"] = "Крамниця";
+}
+
+@if(Model.Category == null)
+{
+	<div class="text-center">
+		<h1 class="display-4">Крамниця - розділ не знайдено</h1>
+	</div>
+}
+else
+{
+	<div class="text-center">
+		<h1 class="display-4">Крамниця - розділ "@(Model.Category.Name)"</h1>
+	</div>
+
+	<div class="row row-cols-1 row-cols-md-3 g-4">
+		@foreach(var product in Model.Category.Products)
+		{
+			@Html.DisplayFor(m => product)
+		}
+	</div>
+
+
+}

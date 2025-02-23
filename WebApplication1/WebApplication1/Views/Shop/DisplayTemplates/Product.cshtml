@@ -1,0 +1,14 @@
+﻿@model WebApplication1.Data.Entities.Product
+
+	<div class="card p-card mx-4 h-100">
+		<a asp-controller="Shop" asp-action="Product" asp-route-id="@(Model.Slug ?? Model.Id.ToString())">
+			<img src="@("/Storage/Item/" + (Model.ImagesCsv?.Split(',').First() ?? "no-image.jpg") )" class="card-img-top" alt="Photo">
+		</a>
+		<div class="card-body">
+			<h5 class="card-title">@Model.Name</h5>
+			<p class="card-text">@Model.Description</p>
+		</div>
+		<div class="card-footer">
+			<strong>₴ @Model.Price</strong>, у наявності - @Model.Stock
+		</div>        
+	</div>

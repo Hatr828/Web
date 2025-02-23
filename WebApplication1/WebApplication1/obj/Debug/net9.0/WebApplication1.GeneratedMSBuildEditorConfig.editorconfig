@@ -56,12 +56,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hatr6/source/repos/WebApplication1/WebApplication1/Views/Shop/Category.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxDYXRlZ29yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hatr6/source/repos/WebApplication1/WebApplication1/Views/Shop/CategoryPreview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxDYXRlZ29yeVByZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hatr6/source/repos/WebApplication1/WebApplication1/Views/Shop/DisplayTemplates/Category.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxEaXNwbGF5VGVtcGxhdGVzXENhdGVnb3J5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/hatr6/source/repos/WebApplication1/WebApplication1/Views/Shop/DisplayTemplates/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxEaXNwbGF5VGVtcGxhdGVzXFByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hatr6/source/repos/WebApplication1/WebApplication1/Views/Shop/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hatr6/source/repos/WebApplication1/WebApplication1/Views/Shop/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvcFxQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hatr6/source/repos/WebApplication1/WebApplication1/Views/User/Index.cshtml]

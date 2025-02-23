@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data.DBContexts;
 using WebApplication1.Models;
+using WebApplication1.Models.Shop;
 using WebApplication1.Services.Storage;
 
 namespace WebApplication1.Controllers
@@ -34,17 +36,47 @@ namespace WebApplication1.Controllers
             return View(model);
         }
 
+        public ViewResult Category([FromRoute] String id)
+        {
+            ShopCategoryPageModel model = new()
+            {
+                Category = _dataContext
+                    .Categories
+                    .Include(c => c.Products)
+                    .FirstOrDefault(c => c.Slug == id)
+            };
+            return View(model);
+        }
+
+        public ViewResult Product([FromRoute] String id)
+        {
+            ShopProductPageModel model = new()
+            {
+                Product = _dataContext
+                    .Products
+                    .Include(p => p.Category)
+                    .ThenInclude(c => c.Products)
+                    .FirstOrDefault(p => p.Slug == id || p.Id.ToString() == id)
+            };
+            return View(model);
+        }
+
         public RedirectToActionResult AddProduct([FromForm] ShopProductFormModel model)
         {
             (bool? status, Dictionary<string, string> errors) = ValidateShopProductModel(model);
 
             if (status ?? false)
             {
-                string imagesCsv = "";
-                foreach (IFormFile file in model!.Images)
+                String? imagesCsv = null;
+                if (model!.Images != null)
                 {
-                    imagesCsv += _storageService.Save(file) + ',';
+                    imagesCsv = "";
+                    foreach (IFormFile file in model!.Images)
+                    {
+                        imagesCsv += _storageService.Save(file) + ',';
+                    }
                 }
+
                 _dataContext.Products.Add(new Data.Entities.Product
                 {
                     Id = Guid.NewGuid(),

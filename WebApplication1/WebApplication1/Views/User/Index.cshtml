@@ -1,5 +1,6 @@
 ﻿@using WebApplication1.Models
-@model UserSignUpPageModel   // тут тільки тип, сама модель - Model
+@using WebApplication1.Models.User
+@model WebApplication1.Models.User.UserSignUpPageModel   // тут тільки тип, сама модель - Model
 @{
     ViewData["Title"] = "Користувачі";
     bool? validationStatus = Model.ValidationStatus;
