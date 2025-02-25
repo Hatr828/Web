@@ -9,6 +9,8 @@ namespace WebApplication1.Data.DBContexts
         public DbSet<Entities.UserAccess> UsersAccess { get; set; }
         public DbSet<Entities.Category> Categories { get; set; }
         public DbSet<Entities.Product> Products { get; set; }
+        public DbSet<Entities.Cart> Carts { get; set; }
+        public DbSet<Entities.CartDetail> CartDetails { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -40,6 +42,19 @@ namespace WebApplication1.Data.DBContexts
 
             modelBuilder.Entity<Entities.Category>()
                 .HasIndex(c => c.Slug);
+
+            modelBuilder.Entity<Entities.Cart>()
+                .HasOne(c => c.User)
+                .WithMany(u => u.Carts);
+
+            modelBuilder.Entity<Entities.CartDetail>()
+                .HasOne(cd => cd.Product)
+                .WithMany();
+            modelBuilder.Entity<Entities.CartDetail>()
+                .HasOne(cd => cd.Cart)
+                .WithMany(c => c.CartDetails);
+
+
 
             modelBuilder.Entity<Entities.Category>().HasData(
                 new Entities.Category

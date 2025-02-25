@@ -82,6 +82,10 @@ namespace WebApplication1.Controllers
             return View(pageModel);
         }
 
+        public ViewResult Cart()
+        {
+            return View();
+        }
         public ViewResult Profile([FromRoute] String id)
         {
             UserProfilePageModel pageModel;

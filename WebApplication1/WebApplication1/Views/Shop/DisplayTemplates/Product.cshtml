@@ -5,6 +5,7 @@
 			<img src="@("/Storage/Item/" + (Model.ImagesCsv?.Split(',').First() ?? "no-image.jpg") )" class="card-img-top" alt="Photo">
 		</a>
 		<div class="card-body">
+			<div data-cart-product="@Model.Id" class="card-fab"><i class="bi bi-cart-plus"></i></div>
 			<h5 class="card-title">@Model.Name</h5>
 			<p class="card-text">@Model.Description</p>
 		</div>

@@ -17,5 +17,8 @@ namespace WebApplication1.Data.Entities
 
         [JsonIgnore]
         public List<UserAccess> Accesses { get; set; } = [];
+
+        [JsonIgnore]
+        public List<Cart> Carts { get; set; } = [];
     }
 }

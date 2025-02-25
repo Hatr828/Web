@@ -5,6 +5,7 @@ using WebApplication1.Data.DBContexts;
 using WebApplication1.Models;
 using WebApplication1.Models.Shop;
 using WebApplication1.Services.Storage;
+using System.Security.Claims;
 
 namespace WebApplication1.Controllers
 {
@@ -97,6 +98,87 @@ namespace WebApplication1.Controllers
             JsonSerializer.Serialize(status));
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPut]
+        public JsonResult AddToCart([FromRoute] String id)
+        {
+            String? userId = HttpContext
+                .User
+                .Claims
+                .FirstOrDefault(c => c.Type == ClaimTypes.Sid)
+                ?.Value;
+
+            if (userId == null)
+            {
+                return Json(new { status = 401, message = "UnAuthorized" });
+            }
+            Guid uid = Guid.Parse(userId);
+
+            // Перевіряємо id на UUID 
+            Guid productId;
+            try { productId = Guid.Parse(id); }
+            catch
+            {
+                return Json(new { status = 400, message = "UUID required" });
+            }
+            // Перевіряємо id на належність товару
+            var product = _dataContext
+                .Products
+                .FirstOrDefault(p => p.Id == productId);
+            if (product == null)
+            {
+                return Json(new { status = 404, message = "Product not found" });
+            }
+
+            // Шукаємо відкритий кошик користувача
+            var cart = _dataContext
+                .Carts
+                .FirstOrDefault(
+                    c => c.UserId == uid &&
+                    c.MomentBuy == null &&
+                    c.MomentCancel == null);
+
+            if (cart == null)  // немає відкритого - тоді відкриваємо новий
+            {
+                cart = new Data.Entities.Cart()
+                {
+                    Id = Guid.NewGuid(),
+                    MomentOpen = DateTime.Now.ToUniversalTime(),
+                    UserId = uid,
+                    Price = 0
+                };
+                _dataContext.Carts.Add(cart);
+            }
+
+            // Перевіряємо чи є такий товар у кошику
+            var cd = _dataContext
+                .CartDetails
+                .FirstOrDefault(d =>
+                    d.CartId == cart.Id &&
+                    d.ProductId == product.Id
+                );
+            if (cd != null)  // товар вже є у кошику
+            {
+                cd.Cnt += 1;
+                cd.Price += product.Price;
+            }
+            else   // товару немає - створюємо новий запис
+            {
+                cd = new Data.Entities.CartDetail()
+                {
+                    Id = Guid.NewGuid(),
+                    Moment = DateTime.Now.ToUniversalTime(),
+                    CartId = cart.Id,
+                    ProductId = product.Id,
+                    Cnt = 1,
+                    Price = product.Price
+                };
+                _dataContext.CartDetails.Add(cd);
+            }
+            cart.Price += product.Price;
+            _dataContext.SaveChanges();
+            return Json(new { status = 201, message = "Created" });
         }
 
         private (bool, Dictionary<string, string>) ValidateShopProductModel(ShopProductFormModel? model)

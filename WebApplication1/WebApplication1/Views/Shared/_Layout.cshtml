@@ -51,6 +51,9 @@
                     <div class="auth-block">
 	                    @if (isAuthenticated)
 	                    {
+		                    <a asp-controller="User"
+		                       asp-action="Cart"
+		                       title="Мій кошик"><i class="bi bi-cart"></i></a>
 		                    <a asp-controller="User" 
 		                       asp-action="Profile"
 		                       asp-route-id="@userSlug"
