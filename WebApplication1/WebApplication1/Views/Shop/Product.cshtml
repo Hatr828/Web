@@ -1,70 +1,60 @@
 ﻿@model WebApplication1.Models.Shop.ShopProductPageModel
 @{
-	ViewData["Title"] = "Product";
+	ViewData["Title"] = "Крамниця";
 }
-
-<link rel="stylesheet" href="~/css/Product/product.css" asp-append-version="true" />
 
 @if (Model.Product == null)
 {
 	<div class="text-center">
-		<h1 class="display-4">Магазин - товар не знайдено</h1>
-	</div>
-	<div style="overflow-x: scroll; display: flex; width: 100%; margin: 20px; padding: 20px; justify-content: space-between; scrollbar-width: thin;">
-		@foreach (var category in Model.Categories)
-		{
-			@Html.Partial("CategoryPreview", category)
-		}
+		<h1 class="display-4">Крамниця - товар не знайдено</h1>
 	</div>
 }
 else
 {
 	<div class="text-center">
-		<h1 class="display-4">Магазин - товар "@(Model.Product.Name)"</h1>
+		<h1 class="display-4">Крамниця - товар "@(Model.Product.Name)"</h1>
 	</div>
-	<div style="overflow-x: scroll; display: flex; width: 100%; margin: 20px; padding: 20px; justify-content: space-between; scrollbar-width: thin;">
-		@foreach (var category in Model.Categories)
-		{
-			@Html.Partial("CategoryPreview", category)
-		}
-	</div>
-	<hr />
 
 	<div class="row">
 		<div class="col-4 product-images">
-			@if (Model.Product.ImagesCsv == null)
+			@if(Model.Product.ImagesCsv == null)
 			{
 				<p>У даного товару немає фотографій</p>
 			}
 			else
 			{
-				foreach (string imgUrl in Model.Product.ImagesCsv.Split(',', StringSplitOptions.RemoveEmptyEntries))
+				foreach(String imgUrl in Model.Product.ImagesCsv.Split(",", StringSplitOptions.RemoveEmptyEntries))
 				{
-					<img src="@(" /Storage/Item/" + imgUrl)" alt="imgUrl" />
+					<img src="@("/Storage/Item/" + imgUrl)" alt="imgUrl" />
 				}
 			}
 		</div>
 		<div class="col-8">
-			<h2>@(Model.Product.Name)</h2>
-			<p>@(Model.Product.Description)</p>
-			<strong>Ціна: ₴ @(Model.Product.Price)</strong>
-			<p>Наявність на складі: @(Model.Product.Stock) шт.</p>
-			<p>Категорія: <a asp-controller="Shop" asp-action="Category" asp-route-id="@(Model.Product.Category.Slug)" title="@(Model.Product.Category.Description)">@(Model.Product.Category.Name)</a></p>
+			<h2>@Model.Product.Name</h2>
+			<p>@Model.Product.Description</p>
+			<strong>@Model.Product.Price</strong>
+			<p>Наявність на складі: @Model.Product.Stock шт</p>
+			<p>Товарна група: 
+				<a asp-controller="Shop" 
+				   asp-action="Category"
+				   asp-route-id="@Model.Product.Category.Slug" 
+				   title="@Model.Product.Category.Description">@Model.Product.Category.Name</a>
+			</p>
+			<div data-cart-product="@Model.Product.Id" class="btn btn-success">
+				<i class="bi bi-cart-plus"></i> Купити
+			</div>
 		</div>
-
 	</div>
 
-	<div class="similar-products-outer">
-		<h3>Схожі товари:</h3>
-		<div class="row row-cols-1 row-cols-md-3 g-4">
-			@foreach (var product in Model.Product.Category.Products)
+	<div>
+		<b>Аналогічні товари:</b>
+		@foreach(var product in Model.Product.Category.Products)
+		{
+			if (product.Id != Model.Product.Id)
 			{
-				if (product.Id != Model.Product.Id)
-				{
-					@Html.DisplayFor(m => product)
-					;
-				}
-			}
-		</div>
+				<a asp-controller="Shop" asp-action="Product" asp-route-id="@(product.Slug ?? product.Id.ToString())">@product.Name</a>
+			}            
+		}
 	</div>
+
 }

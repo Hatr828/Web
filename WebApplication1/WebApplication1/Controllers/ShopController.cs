@@ -62,6 +62,113 @@ namespace WebApplication1.Controllers
             return View(model);
         }
 
+        [HttpDelete]
+        public JsonResult CloseCart([FromRoute] String id)
+        {
+            // Чи користувач авторизований?
+            String? sid = HttpContext.User.Claims
+                .FirstOrDefault(c => c.Type == ClaimTypes.Sid)?.Value;
+            if (sid == null)
+            {
+                return Json(new { status = 401, message = "UnAuthorized" });
+            }
+
+            // чи є такий кошик
+            Guid cartId;
+            try { cartId = Guid.Parse(id); }
+            catch { return Json(new { status = 400, message = "id unrecognized" }); }
+
+            var cart = _dataContext
+                .Carts
+                .Include(c => c.CartDetails)
+                .ThenInclude(cd => cd.Product)
+                .FirstOrDefault(c => c.Id == cartId);
+            if (cart == null)
+            {
+                return Json(new { status = 404, message = "Requested ID Not Found" });
+            }
+
+            // Чи належить він авторизованому користувачеві?           
+            if (cart.UserId.ToString() != sid)
+            {
+                return Json(new { status = 403, message = "Forbidden" });
+            }
+            String cartAction = Request.Headers["Cart-Action"].ToString();
+            if (cartAction == "Buy")
+            {
+                cart.MomentBuy = DateTime.Now.ToUniversalTime();
+                // Скорочуємо кількість товарів
+                foreach (var cd in cart.CartDetails)
+                {
+                    cd.Product.Stock -= cd.Cnt;
+                }
+            }
+            else
+            {
+                cart.MomentCancel = DateTime.Now.ToUniversalTime();
+            }
+
+            _dataContext.SaveChanges();
+            return Json(new { status = 200, message = "OK" });
+        }
+
+        [HttpPatch]
+        public JsonResult ModifyCart([FromRoute] String id, [FromQuery] int delta)
+        {
+            Guid cartDetailId;
+            try
+            {
+                cartDetailId = Guid.Parse(id);
+            }
+            catch
+            {
+                return Json(new { status = 400, message = "id unrecognized" });
+            }
+            if (delta == 0)
+            {
+                return Json(new { status = 400, message = "dummy action" });
+            }
+            var cartDetail = _dataContext
+                .CartDetails
+                .Include(cd => cd.Product)
+                .Include(cd => cd.Cart)
+                .FirstOrDefault(cd => cd.Id == cartDetailId);
+
+            if (cartDetail is null)
+            {
+                return Json(new { status = 404, message = "id respond no item" });
+            }
+            // Д.З. У методі ModifyCart додати перевірку на власність -
+            // елемент кошику, що змінюється, належить авторизованому користувачу
+            // За відсутності авторизації також надіслати відмову у змінах
+
+            // Перевіряємо delta
+            // 1) що її врахування не призведе до від"ємних чисел
+            if (cartDetail.Cnt + delta < 0)
+            {
+                return Json(new { status = 422, message = "decrement too large" });
+            }
+            // 2) що кількість не перевищує товарні залишки
+            if (cartDetail.Cnt + delta > cartDetail.Product.Stock)
+            {
+                return Json(new { status = 406, message = "increment too large" });
+            }
+
+            if (cartDetail.Cnt + delta == 0)  // видалення останнього
+            {
+                cartDetail.Cart.Price += delta * cartDetail.Product.Price;
+                _dataContext.CartDetails.Remove(cartDetail);
+            }
+            else
+            {
+                cartDetail.Cnt += delta;
+                cartDetail.Price += delta * cartDetail.Product.Price;
+                cartDetail.Cart.Price += delta * cartDetail.Product.Price;
+            }
+            _dataContext.SaveChanges();
+            return Json(new { status = 202, message = "Accepted" });
+        }
+
         public RedirectToActionResult AddProduct([FromForm] ShopProductFormModel model)
         {
             (bool? status, Dictionary<string, string> errors) = ValidateShopProductModel(model);

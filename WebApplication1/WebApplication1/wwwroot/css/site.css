@@ -123,7 +123,19 @@ h6 {
     height: 100px;
     width: 100px;
 }
-
+.cart-detail {
+}
+.editable-cnt {
+    border: 1px solid lightgray;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    padding: 6px 8px;
+    vertical-align: middle;
+}
+    .cart-detail img {
+        max-width: 100%;
+    }
 .card-fab {
     position: absolute;
     right: 40px;

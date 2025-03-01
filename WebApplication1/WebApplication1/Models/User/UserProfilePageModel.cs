@@ -1,4 +1,6 @@
-﻿namespace WebApplication1.Models.User
+﻿using WebApplication1.Data.Entities;
+
+namespace WebApplication1.Models.User
 {
     public class UserProfilePageModel
     {
@@ -10,5 +12,8 @@
         public String Recent { get; set; } = "";
         public String Role { get; set; } = "";
         public String PhotoUrl { get; set; } = "";
+
+        public bool IsOwner { get; set; }
+        public List<Cart> Carts { get; set; } = [];
     }
 }

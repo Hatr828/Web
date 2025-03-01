@@ -1,7 +1,47 @@
-﻿@{
+﻿@model WebApplication1.Models.User.UserCartPageModel
+
+@{
 	ViewData["Title"] = "Кошик";
+	bool isAuthenticated = Context.User.Identity?.IsAuthenticated ?? false;
 }
 
 <div class="text-center">
 	<h1 class="display-4">Мій Кошик</h1>
 </div>
+
+@if ( ! isAuthenticated)
+{
+	<h2>Кошик активується після входу в систему</h2>
+}
+else {
+	if(Model.ActiveCart == null || Model.ActiveCart.CartDetails.Count == 0)
+	{
+		<h2>Ваш Кошик поки що порожній. </h2>
+	}
+	else
+	{
+		<h2>Товари у кошику:</h2>
+		@foreach (var detail in Model.ActiveCart.CartDetails)
+		{
+			@Html.DisplayFor(m => detail)
+		}
+		<div class="row">
+			<div class="offset-6 col-lg-3 col-md-4 col-sm-5">
+				Загальна вартість замовлення, ₴:
+			</div>
+			<div class="col-1">
+				<b>@Model.ActiveCart.Price</b>
+			</div>             
+		</div>
+
+		<div class="row">
+			<div class="offset-7 col-lg-3 col-md-4 col-sm-5 text-end">
+				<button class="btn btn-danger" data-cart-cancel="@Model.ActiveCart.Id">Скасувати</button>
+				<button class="btn btn-success" data-cart-buy="@Model.ActiveCart.Id">Придбати</button>
+			</div>
+		</div>
+	}
+	<br/>
+	<br/>
+	<a asp-controller="Shop" asp-action="Index" class="btn btn-primary">Виберіть товари</a>
+}

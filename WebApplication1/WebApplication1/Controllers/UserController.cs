@@ -84,12 +84,44 @@ namespace WebApplication1.Controllers
 
         public ViewResult Cart()
         {
-            return View();
+            UserCartPageModel model = new();
+            String? userId =
+                HttpContext
+                    .User
+                    .Claims
+                    .FirstOrDefault(c => c.Type == ClaimTypes.Sid)
+                    ?.Value;
+            if (userId is not null)
+            {
+                Guid uid = Guid.Parse(userId);
+                model.ActiveCart = _dataContext
+                    .Carts
+                    .Include(c => c.CartDetails)
+                    .ThenInclude(d => d.Product)
+                    .FirstOrDefault(c =>
+                        c.UserId == uid &&
+                        c.MomentBuy == null &&
+                        c.MomentCancel == null);
+
+            }
+            return View(model);
         }
         public ViewResult Profile([FromRoute] String id)
         {
+            // Чи користувач авторизований?
+            String? sid = HttpContext.User.Claims
+                .FirstOrDefault(c => c.Type == ClaimTypes.Sid)?.Value;
+            var authUser = sid == null ? null :
+                _dataContext
+                    .Users
+                    .Include(u => u.Carts)
+                    .ThenInclude(c => c.CartDetails)
+                    .FirstOrDefault(u => u.Id.ToString() == sid);
+
             UserProfilePageModel pageModel;
             var profileUser = _dataContext.Users.FirstOrDefault(u => u.Slug == id);
+
+            bool isOwner = authUser?.Slug == profileUser?.Slug;
             if (profileUser == null)
             {
                 pageModel = new() { IsFound = false };
@@ -105,7 +137,10 @@ namespace WebApplication1.Controllers
                     Phone = profileUser.Phone ?? "--",
                     MostViewed = id,
                     Recent = "Razor",
-                    Role = profileUser.WorkPosition ?? "--"
+                    Role = profileUser.WorkPosition ?? "--",
+
+                    IsOwner = isOwner,
+                    Carts = isOwner ? authUser!.Carts : [],
                 };
                 /* Name = HttpContext.User.Claims
                         .FirstOrDefault(c => c.Type == ClaimTypes.Name)
