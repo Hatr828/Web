@@ -18,5 +18,8 @@ namespace WebApplication1.Data.Entities
 
         [JsonIgnore]
         public Category Category { get; set; } = null!;
+
+        [JsonIgnore]
+        public List<Rate>? Rates { get; set; }
     }
 }

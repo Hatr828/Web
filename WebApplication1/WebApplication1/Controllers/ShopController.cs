@@ -6,6 +6,7 @@ using WebApplication1.Models;
 using WebApplication1.Models.Shop;
 using WebApplication1.Services.Storage;
 using System.Security.Claims;
+using WebApplication1.Data.Entities;
 
 namespace WebApplication1.Controllers
 {
@@ -51,16 +52,105 @@ namespace WebApplication1.Controllers
 
         public ViewResult Product([FromRoute] String id)
         {
-            ShopProductPageModel model = new()
-            {
-                Product = _dataContext
+            String? authUserId = HttpContext.User.Claims
+                .FirstOrDefault(c => c.Type == ClaimTypes.Sid)?.Value;
+
+            var Product = _dataContext
                     .Products
                     .Include(p => p.Category)
-                    .ThenInclude(c => c.Products)
-                    .FirstOrDefault(p => p.Slug == id || p.Id.ToString() == id)
+                        .ThenInclude(c => c.Products)
+                    .Include(p => p.Rates)
+                    .FirstOrDefault(p => p.Slug == id || p.Id.ToString() == id);
+
+            ShopProductPageModel model = new()
+            {
+                Product = Product
             };
+
+            if (Product != null && authUserId != null)
+            {
+                var cds = _dataContext
+                    .CartDetails.Where(cd =>
+                        cd.ProductId == Product.Id &&
+                        cd.Cart.UserId.ToString() == authUserId);
+
+                model.CanUserRate = cds.Any();
+
+                model.UserRate =
+                    _dataContext.Rates.FirstOrDefault(r =>
+                        r.ProductId == Product.Id &&
+                        r.UserId.ToString() == authUserId);
+
+                model.AuthUserId = authUserId;
+            }
+
             return View(model);
         }
+
+        [HttpPost]
+        public JsonResult Rate([FromBody] ShopRateFormModel rateModel)
+        {
+            if (!Guid.TryParse(rateModel.UserId, out Guid userId))
+            {
+                return Json(new { status = 400, errors = new { UserId = "Invalid user identifier" } });
+            }
+
+            if (!Guid.TryParse(rateModel.ProductId, out Guid productId))
+            {
+                return Json(new { status = 400, errors = new { ProductId = "Invalid product identifier" } });
+            }
+
+            var user = _dataContext.Users.Include(u => u.Rates).FirstOrDefault(u => u.Id == userId);
+            if (user is null)
+            {
+                return Json(new { status = 401, errors = new { User = "User is not authorized" } });
+            }
+
+            var product = _dataContext.Products.FirstOrDefault(p => p.Id == productId);
+            if (product is null)
+            {
+                return Json(new { status = 404, errors = new { Product = "Product not found" } });
+            }
+
+            bool hasRating = rateModel.Rating.HasValue;
+            bool hasComment = !string.IsNullOrWhiteSpace(rateModel.Comment);
+
+            if (!hasRating && !hasComment)
+            {
+                return Json(new { status = 400, errors = new { Rating = "A rating or comment must be provided." } });
+            }
+
+            if (hasComment && rateModel.Comment.Length < 5)
+            {
+                return Json(new { status = 400, errors = new { Comment = "Comment must be at least 5 characters long." } });
+            }
+
+            var givenRate = user.Rates?.FirstOrDefault(r => r.ProductId == productId);
+            if (givenRate is not null)
+            {
+                givenRate.Comment = hasComment ? rateModel.Comment : givenRate.Comment;
+                givenRate.Rating = hasRating ? rateModel.Rating : givenRate.Rating;
+                givenRate.Moment = DateTime.Now.ToUniversalTime();
+            }
+            else
+            {
+                givenRate = new()
+                {
+                    Id = Guid.NewGuid(),
+                    UserId = userId,
+                    ProductId = productId,
+                    Comment = hasComment ? rateModel.Comment : null,
+                    Rating = hasRating ? rateModel.Rating : null,
+                    Moment = DateTime.Now.ToUniversalTime()
+                };
+                _dataContext.Rates.Add(givenRate);
+            }
+
+            _dataContext.SaveChanges();
+
+            return Json(new { status = 200, message = "Ok", data = givenRate });
+        }
+
 
         [HttpDelete]
         public JsonResult CloseCart([FromRoute] String id)

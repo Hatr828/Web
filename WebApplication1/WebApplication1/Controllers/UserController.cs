@@ -82,30 +82,41 @@ namespace WebApplication1.Controllers
             return View(pageModel);
         }
 
-        public ViewResult Cart()
+        public ViewResult Cart(String? id)
         {
             UserCartPageModel model = new();
             String? userId =
                 HttpContext
-                    .User
-                    .Claims
-                    .FirstOrDefault(c => c.Type == ClaimTypes.Sid)
-                    ?.Value;
+                .User
+                .Claims
+                .FirstOrDefault(c => c.Type == ClaimTypes.Sid)
+                ?.Value;
             if (userId is not null)
             {
                 Guid uid = Guid.Parse(userId);
-                model.ActiveCart = _dataContext
-                    .Carts
-                    .Include(c => c.CartDetails)
-                    .ThenInclude(d => d.Product)
-                    .FirstOrDefault(c =>
-                        c.UserId == uid &&
-                        c.MomentBuy == null &&
-                        c.MomentCancel == null);
-
+                if (id == null)
+                {
+                    model.ActiveCart = _dataContext
+                        .Carts
+                        .Include(c => c.CartDetails)
+                            .ThenInclude(d => d.Product)
+                        .FirstOrDefault(c =>
+                            c.UserId == uid &&
+                            c.MomentBuy == null &&
+                            c.MomentCancel == null);
+                }
+                else
+                {
+                    model.ActiveCart = _dataContext
+                        .Carts
+                        .Include(c => c.CartDetails)
+                            .ThenInclude(d => d.Product)
+                        .FirstOrDefault(c => c.Id.ToString() == id);
+                }
             }
             return View(model);
         }
+
         public ViewResult Profile([FromRoute] String id)
         {
             // Чи користувач авторизований?

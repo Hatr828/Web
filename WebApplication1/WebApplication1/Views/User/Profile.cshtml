@@ -65,7 +65,28 @@
                                 {
                                     foreach (var cart in Model.Carts)
                                     {
-                                        <p>₴ @cart.Price (@cart.CartDetails.Count шт)</p>
+                                        <a asp-controller="User" asp-action="Cart" asp-route-id="@cart.Id">
+                                            @(cart.MomentOpen.Date == DateTime.Today
+                                                ? cart.MomentOpen.ToShortTimeString()
+                                                : cart.MomentOpen.ToShortDateString())
+
+                                            ₴ @cart.Price
+                                            (@cart.CartDetails.Count шт)
+
+                                            @if (cart.MomentBuy != null)
+                                            {
+                                                <i class="bi bi-cart-check"></i>
+                                            }
+                                            else if (cart.MomentCancel != null)
+                                            {
+                                                <i class="bi bi-cart-x"></i>
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-cart"></i>
+                                            }
+
+                                        </a>
                                     }
                                 }
                             </div>

@@ -24,7 +24,52 @@
     for (let btn of document.querySelectorAll('[data-cart-buy]')) {
         btn.addEventListener('click', buyCart);
     }
+
+    for (let btn of document.querySelectorAll('[rate-button]')) {
+        btn.addEventListener('click', rateClick);
+    }
 });
+
+function rateClick(e) {
+    e.preventDefault();
+
+    const btn = e.target.closest('[data-rate-user]');
+    const userId = btn.getAttribute('data-rate-user');
+    const productId = btn.getAttribute('data-rate-product');
+    const commentInput = document.getElementById("rate-comment");
+    const ratingInput = document.querySelector('input[name="Rate"]:checked');
+
+    const rating = ratingInput ? ratingInput.value : null;
+    const comment = commentInput.value.trim();
+
+    document.querySelectorAll(".is-invalid").forEach(el => el.classList.remove("is-invalid"));
+    document.querySelectorAll(".invalid-feedback").innerText = "";
+
+    fetch("/Shop/Rate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId, productId, comment, rating })
+    })
+        .then(r => r.json())
+        .then(j => {
+            if (j.status >= 400) {
+                if (j.errors.comment) {
+                    showError(commentInput, j.errors.comment);
+                }
+                if (j.errors.rating) {
+                    showError(document.querySelector(".star-rate"), j.errors.rating);
+                }
+                return;
+            }
+            window.location.reload();
+        });
+}
+
+function showError(input, message) {
+    input.classList.add("is-invalid");
+    const rateFeedback = input.parentNode.querySelector("#rate-feedback");
+    rateFeedback.innerText = message;
+}
 
 function buyCart(e) {
     const idElement = e.target.closest("[data-cart-buy]");

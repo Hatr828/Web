@@ -180,6 +180,36 @@ namespace WebApplication1.Migrations
                     b.ToTable("Products", "site");
                 });
 
+            modelBuilder.Entity("WebApplication1.Data.Entities.Rate", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("Moment")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int?>("Rating")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Rates", "site");
+                });
+
             modelBuilder.Entity("WebApplication1.Data.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
@@ -286,6 +316,25 @@ namespace WebApplication1.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("WebApplication1.Data.Entities.Rate", b =>
+                {
+                    b.HasOne("WebApplication1.Data.Entities.Product", "Product")
+                        .WithMany("Rates")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebApplication1.Data.Entities.User", "User")
+                        .WithMany("Rates")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("WebApplication1.Data.Entities.UserAccess", b =>
                 {
                     b.HasOne("WebApplication1.Data.Entities.User", "User")
@@ -307,11 +356,18 @@ namespace WebApplication1.Migrations
                     b.Navigation("Products");
                 });
 
+            modelBuilder.Entity("WebApplication1.Data.Entities.Product", b =>
+                {
+                    b.Navigation("Rates");
+                });
+
             modelBuilder.Entity("WebApplication1.Data.Entities.User", b =>
                 {
                     b.Navigation("Accesses");
 
                     b.Navigation("Carts");
+
+                    b.Navigation("Rates");
                 });
 #pragma warning restore 612, 618
         }

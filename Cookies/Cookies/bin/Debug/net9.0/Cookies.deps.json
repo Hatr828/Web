@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Cookies/1.0.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "4.29.0",
+          "Selenium.WebDriver.ChromeDriver": "134.0.6998.3500"
+        },
+        "runtime": {
+          "Cookies.dll": {}
+        }
+      },
+      "Selenium.WebDriver/4.29.0": {
+        "runtime": {
+          "lib/net8.0/WebDriver.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "Selenium.WebDriver.ChromeDriver/134.0.6998.3500": {}
+    }
+  },
+  "libraries": {
+    "Cookies/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Selenium.WebDriver/4.29.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bxUeeyGPoPFqqZX/RQAmcuE8fvdi08ep9519rFpONfC/rmBemezfCbbwDKPLE0xkb/cW1asH5WbDYLXs5giVeg==",
+      "path": "selenium.webdriver/4.29.0",
+      "hashPath": "selenium.webdriver.4.29.0.nupkg.sha512"
+    },
+    "Selenium.WebDriver.ChromeDriver/134.0.6998.3500": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ms46NISAWpw69RFFN52jsTglxC3Ti06KBGD81AZzbpKKs6MFcyZd2XftKZ5rjC3ODRbi9+awlC6VsfFpbk2C0Q==",
+      "path": "selenium.webdriver.chromedriver/134.0.6998.3500",
+      "hashPath": "selenium.webdriver.chromedriver.134.0.6998.3500.nupkg.sha512"
+    }
+  }
+}

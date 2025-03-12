@@ -133,6 +133,110 @@ h6 {
     padding: 6px 8px;
     vertical-align: middle;
 }
+.similar-products-outer {
+    margin: 150px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.similar-products-inner {
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+    overflow-x: scroll;
+    width: 100%;
+    scrollbar-width: thin;
+}
+
+    .similar-products-inner .col {
+        width: 240px;
+    }
+
+    .similar-products-inner img {
+        height: 220px;
+    }
+
+    .similar-products-inner .card {
+        border: none;
+        box-shadow: 0 0 5px gray;
+        transition: 0.1s ease-out;
+    }
+
+        .similar-products-inner .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px gray;
+        }
+
+    .similar-products-inner .col {
+        flex: none;
+    }
+
+    .similar-products-inner .card-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.rates-header, .summary-rate {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.rates-container {
+    height: 360px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    padding: 10px;
+}
+
+#rate-button {
+    margin-top: 10px;
+}
+
+.star-rate {
+    direction: rtl;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+    .star-rate input[type="radio"] {
+        display: none;
+    }
+
+    .star-rate label {
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+.rate-card {
+    box-shadow: 0 0 5px gray;
+    border: none;
+}
+
+.rate-user-image {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    margin-right: 1em;
+    object-fit: cover;
+}
+
+.rate-moment {
+    color: gray;
+    font-size: 14px;
+}
+
+.rate-active {
+    color: orange;
+}
+
+        .star-rate label:hover,
+        .star-rate label:hover ~ label,
+        .star-rate input[type="radio"]:checked ~ label {
+            fill: orange;
+            color: orange;
+        }
     .cart-detail img {
         max-width: 100%;
     }

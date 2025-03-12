@@ -186,5 +186,5 @@ C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\obj\Debug\net9.0\Web
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\obj\Debug\net9.0\ref\WebApplication1.dll
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\obj\Debug\net9.0\compressed\geob4jxd5b-lfi2ytnx6v.gz
 C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\obj\Debug\net9.0\compressed\sfr9826l73-lt44wf6l9r.gz
-C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\obj\Debug\net9.0\compressed\9cuoy2kfs0-h5ijdozgxh.gz
+C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\obj\Debug\net9.0\compressed\sfr9826l73-xlzejthref.gz
+C:\Users\hatr6\source\repos\WebApplication1\WebApplication1\obj\Debug\net9.0\compressed\9cuoy2kfs0-w20rowaq32.gz

@@ -11,6 +11,7 @@ namespace WebApplication1.Data.DBContexts
         public DbSet<Entities.Product> Products { get; set; }
         public DbSet<Entities.Cart> Carts { get; set; }
         public DbSet<Entities.CartDetail> CartDetails { get; set; }
+        public DbSet<Entities.Rate> Rates { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -19,6 +20,13 @@ namespace WebApplication1.Data.DBContexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("site");
+
+            modelBuilder.Entity<Entities.Rate>()
+             .HasOne(r => r.User)
+             .WithMany(u => u.Rates);
+            modelBuilder.Entity<Entities.Rate>()
+                .HasOne(r => r.Product)
+                .WithMany(p => p.Rates);
 
             modelBuilder.Entity<Entities.UserAccess>()
                 .HasIndex(a => a.Login)
