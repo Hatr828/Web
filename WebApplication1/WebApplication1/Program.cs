@@ -7,6 +7,7 @@ using WebApplication1.Services.Hash;
 using WebApplication1.Services.Random;
 using WebApplication1.Middleware.Auth;
 using WebApplication1.Services.Storage;
+using WebApplication1.Data;
 
 
 namespace WebApplication1
@@ -17,6 +18,15 @@ namespace WebApplication1
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:3000");
+                    });
+            });
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -25,6 +35,7 @@ namespace WebApplication1
             builder.Services.AddSingleton<IHashService, Md5HashService>();
             builder.Services.AddSingleton<IKdfService, PbKdf1Service>();
             builder.Services.AddSingleton<IStorageService, LocalStorageService>();
+            builder.Services.AddScoped<DataAccessor>();
             builder.Services.AddScoped<UserService>();
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -50,6 +61,8 @@ namespace WebApplication1
 
             app.UseHttpsRedirection();
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

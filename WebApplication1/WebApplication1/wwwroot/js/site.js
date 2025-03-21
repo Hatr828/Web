@@ -65,6 +65,7 @@ function rateClick(e) {
         });
 }
 
+
 function showError(input, message) {
     input.classList.add("is-invalid");
     const rateFeedback = input.parentNode.querySelector("#rate-feedback");

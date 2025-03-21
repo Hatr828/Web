@@ -92,24 +92,24 @@ namespace WebApplication1.Controllers
         {
             if (!Guid.TryParse(rateModel.UserId, out Guid userId))
             {
-                return Json(new { status = 400, errors = new { UserId = "Invalid user identifier" } });
+                return Json(new { status = 400, errors = new { UserId = "Некоректний ідентифікатор користувача" } });
             }
 
             if (!Guid.TryParse(rateModel.ProductId, out Guid productId))
             {
-                return Json(new { status = 400, errors = new { ProductId = "Invalid product identifier" } });
+                return Json(new { status = 400, errors = new { ProductId = "Некоректний ідентифікатор товару" } });
             }
 
             var user = _dataContext.Users.Include(u => u.Rates).FirstOrDefault(u => u.Id == userId);
             if (user is null)
             {
-                return Json(new { status = 401, errors = new { User = "User is not authorized" } });
+                return Json(new { status = 401, errors = new { User = "Користувач не авторизований" } });
             }
 
             var product = _dataContext.Products.FirstOrDefault(p => p.Id == productId);
             if (product is null)
             {
-                return Json(new { status = 404, errors = new { Product = "Product not found" } });
+                return Json(new { status = 404, errors = new { Product = "Товар не знайдено" } });
             }
 
             bool hasRating = rateModel.Rating.HasValue;
@@ -117,12 +117,12 @@ namespace WebApplication1.Controllers
 
             if (!hasRating && !hasComment)
             {
-                return Json(new { status = 400, errors = new { Rating = "A rating or comment must be provided." } });
+                return Json(new { status = 400, errors = new { Rating = "Оцінка або коментар мають бути вказані." } });
             }
 
             if (hasComment && rateModel.Comment.Length < 5)
             {
-                return Json(new { status = 400, errors = new { Comment = "Comment must be at least 5 characters long." } });
+                return Json(new { status = 400, errors = new { Comment = "Коментар має бути не коротше 5 символів." } });
             }
 
             var givenRate = user.Rates?.FirstOrDefault(r => r.ProductId == productId);
@@ -376,6 +376,112 @@ namespace WebApplication1.Controllers
             cart.Price += product.Price;
             _dataContext.SaveChanges();
             return Json(new { status = 201, message = "Created" });
+        }
+
+        [HttpPost]
+        public JsonResult RepeatCart([FromRoute] string id)
+        {
+            string? userId = HttpContext
+                .User
+                .Claims
+                .FirstOrDefault(c => c.Type == ClaimTypes.Sid)?
+                .Value;
+            if (userId == null)
+            {
+                return Json(new { status = 401, message = "Unauthorized" });
+            }
+
+            Guid uid = Guid.Parse(userId);
+
+            Guid cartId;
+            try { cartId = Guid.Parse(id); }
+            catch
+            {
+                return Json(new { status = 400, message = "UUID required" });
+            }
+
+            var oldCart = _dataContext.Carts
+                .Include(c => c.CartDetails)
+                .ThenInclude(cd => cd.Product)
+                .FirstOrDefault(c => c.Id == cartId && c.UserId == uid);
+
+            if (oldCart == null)
+            {
+                return Json(new { status = 404, message = "Cart not found" });
+            }
+
+            var activeCart = _dataContext.Carts
+                .Include(c => c.CartDetails)
+                .FirstOrDefault(c => c.UserId == uid && c.MomentBuy == null && c.MomentCancel == null);
+
+            if (activeCart == null)
+            {
+                activeCart = new Data.Entities.Cart()
+                {
+                    Id = Guid.NewGuid(),
+                    MomentOpen = DateTime.Now,
+                    UserId = uid,
+                    Price = 0,
+                };
+                _dataContext.Carts.Add(activeCart);
+            }
+
+            List<string> warnings = new List<string>();
+
+            foreach (var oldDetail in oldCart.CartDetails)
+            {
+                var product = oldDetail.Product;
+                if (product == null)
+                {
+                    warnings.Add($"Товар '{oldDetail.ProductId}' більше не доступний.");
+                    continue;
+                }
+
+                int availableQuantity = product.Stock;
+                if (availableQuantity <= 0)
+                {
+                    warnings.Add($"Товар '{product.Name}' недоступний для замовлення.");
+                    continue;
+                }
+
+                int addQuantity = Math.Min(oldDetail.Cnt, availableQuantity);
+                var activeDetail = _dataContext.CartDetails.FirstOrDefault(d => d.CartId == activeCart.Id && d.ProductId == product.Id);
+
+                if (activeDetail != null)
+                {
+                    activeDetail.Cnt += addQuantity;
+                    activeDetail.Price += product.Price * addQuantity;
+                }
+                else
+                {
+                    var newDetail = new Data.Entities.CartDetail()
+                    {
+                        Id = Guid.NewGuid(),
+                        Moment = DateTime.Now,
+                        CartId = activeCart.Id,
+                        ProductId = product.Id,
+                        Price = product.Price * addQuantity,
+                        Cnt = addQuantity
+                    };
+                    _dataContext.CartDetails.Add(newDetail);
+                }
+
+                activeCart.Price += product.Price * addQuantity;
+
+                if (addQuantity < oldDetail.Cnt)
+                {
+                    warnings.Add($"Товар '{product.Name}' додано у меншій кількості ({addQuantity} шт.) через обмежений залишок.");
+                }
+            }
+
+            _dataContext.SaveChanges();
+
+            return Json(new
+            {
+                status = 200,
+                message = "Cart repeated successfully",
+                warnings
+            });
         }
 
         private (bool, Dictionary<string, string>) ValidateShopProductModel(ShopProductFormModel? model)
