@@ -9,9 +9,9 @@ namespace WebApplication1.Services
 {
     public class UserService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly DataContext _context;
 
-        public UserService(ApplicationDbContext context)
+        public UserService(DataContext context)
         {
             _context = context;
         }

@@ -11,7 +11,7 @@ using WebApplication1.Data.DBContexts;
 
 namespace WebApplication1.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(DataContext))]
     [Migration("20250217170631_Slug")]
     partial class Slug
     {

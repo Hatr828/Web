@@ -11,7 +11,7 @@ using WebApplication1.Data.DBContexts;
 
 namespace WebApplication1.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(DataContext))]
     [Migration("20250216015940_UpdateUsers")]
     partial class UpdateUsers
     {

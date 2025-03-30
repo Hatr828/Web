@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace WebApplication1.Data.Entities
 {
-    public class Product
+    public record Product
     {
         public Guid Id { get; set; }
         public Guid CategoryId { get; set; }

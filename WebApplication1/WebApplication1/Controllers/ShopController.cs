@@ -7,14 +7,17 @@ using WebApplication1.Models.Shop;
 using WebApplication1.Services.Storage;
 using System.Security.Claims;
 using WebApplication1.Data.Entities;
+using WebApplication1.Data;
 
 namespace WebApplication1.Controllers
 {
-    public class ShopController(ApplicationDbContext dataContext,
-     IStorageService storageService) : Controller
+    public class ShopController(DataContext dataContext,
+     IStorageService storageService,
+     DataAccessor dataAccessor) : Controller
     {
         private readonly IStorageService _storageService = storageService;
-        private readonly ApplicationDbContext _dataContext = dataContext;
+        private readonly DataContext _dataContext = dataContext;
+        private readonly DataAccessor _dataAccessor = dataAccessor;
 
         public IActionResult Index()
         {
@@ -52,39 +55,7 @@ namespace WebApplication1.Controllers
 
         public ViewResult Product([FromRoute] String id)
         {
-            String? authUserId = HttpContext.User.Claims
-                .FirstOrDefault(c => c.Type == ClaimTypes.Sid)?.Value;
-
-            var Product = _dataContext
-                    .Products
-                    .Include(p => p.Category)
-                        .ThenInclude(c => c.Products)
-                    .Include(p => p.Rates)
-                    .FirstOrDefault(p => p.Slug == id || p.Id.ToString() == id);
-
-            ShopProductPageModel model = new()
-            {
-                Product = Product
-            };
-
-            if (Product != null && authUserId != null)
-            {
-                var cds = _dataContext
-                    .CartDetails.Where(cd =>
-                        cd.ProductId == Product.Id &&
-                        cd.Cart.UserId.ToString() == authUserId);
-
-                model.CanUserRate = cds.Any();
-
-                model.UserRate =
-                    _dataContext.Rates.FirstOrDefault(r =>
-                        r.ProductId == Product.Id &&
-                        r.UserId.ToString() == authUserId);
-
-                model.AuthUserId = authUserId;
-            }
-
-            return View(model);
+            return View(_dataAccessor.ProductById(id));
         }
 
         [HttpPost]

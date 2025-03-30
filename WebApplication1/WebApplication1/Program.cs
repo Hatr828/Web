@@ -38,7 +38,7 @@ namespace WebApplication1
             builder.Services.AddScoped<DataAccessor>();
             builder.Services.AddScoped<UserService>();
 
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            builder.Services.AddDbContext<DataContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddDistributedMemoryCache();

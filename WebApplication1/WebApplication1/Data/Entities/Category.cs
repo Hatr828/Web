@@ -2,15 +2,15 @@
 
 namespace WebApplication1.Data.Entities
 {
-    public class Category
+    public record Category
     {
         public Guid Id { get; set; }
-        public String Name { get; set; } = String.Empty;
-        public String Description { get; set; } = String.Empty;
-        public String? ImagesCsv { get; set; }
-        public String Slug { get; set; } = null!;
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string? ImagesCsv { get; set; }
+        public string Slug { get; set; } = null!;
 
         [JsonIgnore]
-        public List<Product> Products { get; set; } = [];
+        public List<Product> Products { get; init; } = new();
     }
 }

@@ -4,24 +4,24 @@
     {
         public RestResponseStatus Status { get; set; } = new();
         public long CacheLifetime { get; set; } = 0L;
-        public string Description { get; set; } = "Self-descriptive message";
+        public String Description { get; set; } = "Self descriptive message";
         public RestResponseManipulations Manipulations { get; set; } = new();
-        public Dictionary<string, object> Meta { get; set; } = [];
-        public object? Data { get; set; }
+        public Dictionary<String, Object> Meta { get; set; } = [];
+        public Object? Data { get; set; }
     }
 
     public class RestResponseStatus
     {
         public int Code { get; set; } = 200;
-        public string Phrase { get; set; } = "OK";
-        public bool isSuccess { get; set; } = true;
+        public String Phrase { get; set; } = "OK";
+        public bool IsSuccess { get; set; } = true;
     }
 
     public class RestResponseManipulations
     {
-        public string? Create { get; set; }
-        public string? Read { get; set; }
-        public string? Update { get; set; }
-        public string? Delete { get; set; }
+        public String? Create { get; set; }
+        public String? Read { get; set; }
+        public String? Update { get; set; }
+        public String? Delete { get; set; }
     }
 }

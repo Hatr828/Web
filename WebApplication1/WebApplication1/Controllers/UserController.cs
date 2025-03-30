@@ -14,7 +14,7 @@ using WebApplication1.Services.Storage;
 namespace WebApplication1.Controllers
 {
     public class UserController(
-        ApplicationDbContext dataContext,
+        DataContext dataContext,
         IKdfService kdfService,
         IRandomService randomService,
         IStorageService storageService,
@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
         IConfiguration configuration) : Controller
     {
 
-        private readonly ApplicationDbContext _dataContext = dataContext;
+        private readonly DataContext _dataContext = dataContext;
         private readonly IKdfService _kdfService = kdfService;
         private readonly IRandomService _randomService = randomService;
         private readonly IConfiguration _configuration = configuration;

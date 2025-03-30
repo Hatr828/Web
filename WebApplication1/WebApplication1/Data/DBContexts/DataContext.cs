@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Data.DBContexts
 {
-    public class ApplicationDbContext : DbContext
+    public class DataContext : DbContext
     {
         public DbSet<Entities.User> Users { get; set; }
         public DbSet<Entities.UserAccess> UsersAccess { get; set; }
@@ -13,7 +13,7 @@ namespace WebApplication1.Data.DBContexts
         public DbSet<Entities.CartDetail> CartDetails { get; set; }
         public DbSet<Entities.Rate> Rates { get; set; }
 
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        public DataContext(DbContextOptions options) : base(options)
         {
         }
 
