@@ -1,0 +1,41 @@
+.product-images {
+    text-align: center;
+}
+
+.product-images img {
+    max-width: 90%;
+    max-height: 300px;
+}
+
+.card-body {
+    position: relative;
+}
+
+.card-fab {
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+    top: -30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: dodgerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+
+.card-fab .bi {
+    transition: 0.1s ease-out;
+}
+
+.card-fab:hover .bi {
+    transform: scale(1.4);
+    color: white;
+}
+
+.product-img {
+    height: 400px;
+}
